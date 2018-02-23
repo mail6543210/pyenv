@@ -1049,7 +1049,7 @@ build_package_pypy_builder() {
     if [ -z "${PYPY_OPTS}" ]; then
       local PYPY_OPTS="--opt=jit --batch --make-jobs=$(num_cpu_cores)"
     fi
-    python "rpython/bin/rpython" ${PYPY_OPTS} "pypy/goal/targetpypystandalone.py" >&4 2>&1
+    pypy "rpython/bin/rpython" ${PYPY_OPTS} "pypy/goal/targetpypystandalone.py" >&4 2>&1
   elif [ -f "pypy/translator/goal/translate.py" ]; then # pypy 1.x
     if [ -z "${PYPY_OPTS}" ]; then
       local PYPY_OPTS="--opt=jit"
